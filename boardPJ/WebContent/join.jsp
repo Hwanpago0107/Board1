@@ -8,6 +8,7 @@
 <meta name="viewport" content="width=divice-width" initial-scale="1">
 
 <link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/custom.css">
 
 <title>게시판 웹사이트</title>
 </head>

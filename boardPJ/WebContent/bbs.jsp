@@ -12,6 +12,7 @@
 <meta name="viewport" content="width=divice-width" initial-scale="1">
 
 <link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/custom.css">
 
 <title>게시판 웹사이트</title>
 <style type="text/css">
@@ -101,7 +102,7 @@ a, a:hover {
 					<tr>
 						<td><%=list.get(i).getBbsID()%></td>
 						<td><a href="view.jsp?bbsID=<%=list.get(i).getBbsID()%>">
-								<%=list.get(i).getBbsTitle()%></a></td>
+								<%=list.get(i).getBbsTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>")%></a></td>
 						<td><%=list.get(i).getUserID()%></td>
 						<td><%=list.get(i).getBbsDate().substring(0, 11) + list.get(i).getBbsDate().substring(11, 13) + "시 "
 						+ list.get(i).getBbsDate().substring(14, 16) + "분"%></td>

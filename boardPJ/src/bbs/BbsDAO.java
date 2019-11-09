@@ -109,4 +109,52 @@ public class BbsDAO { // DAO: 데이터 베이스 접근 객체
 		}
 		return false; // 페이지가 없을 때
 	}
+	
+	public Bbs getBbs(int bbsID) {
+		String SQL = "SELECT * FROM BBS WHERE bbsID = ?";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, bbsID);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				Bbs bbs = new Bbs();
+				bbs.setBbsID(rs.getInt(1));
+				bbs.setBbsTitle(rs.getString(2));
+				bbs.setUserID(rs.getString(3));
+				bbs.setBbsDate(rs.getString(4));
+				bbs.setBbsContent(rs.getString(5));
+				bbs.setBbsAvailable(rs.getInt(6));
+				return bbs;
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public int update(int bbsID, String bbsTitle, String bbsContent) {
+		String SQL = "UPDATE BBS SET bbsTitle = ?, bbsContent = ? WHERE bbsID = ?";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, bbsTitle);
+			pstmt.setString(2, bbsContent);
+			pstmt.setInt(3, bbsID);
+			return pstmt.executeUpdate(); // 0 이상인 결과 반환
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return -1; // 데이터 베이스 오류
+	}
+	
+	public int delete(int bbsID) {
+		String SQL = "UPDATE BBS SET bbsAvailable = 0 WHERE bbsID = ?";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, bbsID);
+			return pstmt.executeUpdate(); // 0 이상인 결과 반환
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return -1; // 데이터 베이스 오류
+	}
 }

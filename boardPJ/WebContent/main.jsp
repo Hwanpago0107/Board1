@@ -9,6 +9,7 @@
 <meta name="viewport" content="width=divice-width" initial-scale="1">
 
 <link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/custom.css">
 
 <title>게시판 웹사이트</title>
 </head>
@@ -37,7 +38,8 @@
 				<li><a href="bbs.jsp">게시판</a></li>
 			</ul>
 			<%
-			if(userID == null){%>
+				if (userID == null) {
+			%>
 
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -46,11 +48,10 @@
 					<ul class="dropdown-menu">
 						<li class="active"><a href="login.jsp">로그인</a></li>
 						<li><a href="join.jsp">회원가입</a></li>
-					</ul>
-					</li>
+					</ul></li>
 			</ul>
 			<%
-			} else{
+				} else {
 			%>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -58,14 +59,48 @@
 					aria-expanded="false"> 회원관리<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="logoutAction.jsp">로그아웃</a></li>
-					</ul>
-					</li>
+					</ul></li>
 			</ul>
 			<%
-			}
+				}
 			%>
 		</div>
 	</nav>
+	<div class="container">
+		<div class="jumbotron">
+			<div class="container">
+				<h1>웹 사이트 소개</h1>
+				<p>Bootstrap을 이용한 JSP 게시판입니다. 최소한의 로직만을 이용해서 개발하였습니다.</p>
+				<a class="btn btn-primary btn-pull" href="#" role="button">자세히
+					알아보기</a>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+			</ol>
+			<div class="carousel-inner">
+				<div class="item active">
+					<img src="images/1.png">
+				</div>
+				<div class="item">
+					<img src="images/2.png">
+				</div>
+				<div class="item">
+					<img src="images/3.png">
+				</div>
+			</div>
+			<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+			</a> <a class="right carousel-control" href="#myCarousel"
+				data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span>
+			</a>
+		</div>
+	</div>
 
 	<!-- JQuery -->
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

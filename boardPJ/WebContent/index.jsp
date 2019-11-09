@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta http-equiv="content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="css/custom.css">
 <title>게시판 웹사이트</title>
 </head>
 <body>
